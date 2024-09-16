@@ -36,12 +36,26 @@ class GamePlay:
     def turn(self):
         x, y = self.gui()
 
-        self.board.update_board(x, y, self.player_change[self.player])
+        self.board.update_board(x, y, self.player_change[self.player]) 
+        if isinstance(self.board.checkWin(), int):
+            os.system("clear")
+            winner = self.board.checkWin()
+            if winner == 1:
+                print("X won")
+            elif winner == -1:
+                print("O won")
+            elif winner == 0:
+                print("Draw")
+
+            return False
+
         self.player = "PlayerX" if (self.player == "PlayerO") else "PlayerO"
+        return True
 
     def play(self):
-        while True:
-            self.turn()
+        flag = True
+        while flag:
+            flag = self.turn()
 
 
 if __name__ == "__main__":

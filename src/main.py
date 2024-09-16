@@ -1,5 +1,10 @@
-print("give the coords the square picked(x, y):", end=" ")
-coords = input().split(",")
+import utils.gameplay as TTT
 
-if len(coords) == 2:
-    print(f"x_coords: {int(coords[0])}, y_coords: {int(coords[1])}")
+
+def main():
+    game = TTT.GamePlay()
+    game.play()
+
+
+if __name__ == "__main__":
+    main()
