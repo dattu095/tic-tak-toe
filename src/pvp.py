@@ -1,4 +1,4 @@
-import board
+import utils.board as board
 import os
 
 
@@ -36,7 +36,7 @@ class GamePlay:
     def turn(self):
         x, y = self.gui()
 
-        self.board.update_board(x, y, self.player_change[self.player]) 
+        self.board.make_move(x, y, self.player_change[self.player])
         if isinstance(self.board.checkWin(), int):
             os.system("clear")
             winner = self.board.checkWin()

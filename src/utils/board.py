@@ -33,7 +33,7 @@ class Board:
                 return True
         return False
 
-    def update_board(self, x_coords, y_coords, character):
+    def make_move(self, x_coords, y_coords, character):
         self.board[x_coords][y_coords] = character
 
     def isFilled(self):

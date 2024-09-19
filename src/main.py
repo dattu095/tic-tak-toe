@@ -1,8 +1,8 @@
-import utils.gameplay as TTT
+import pvp
 
 
 def main():
-    game = TTT.GamePlay()
+    game = pvp.GamePlay()
     game.play()
 
 
