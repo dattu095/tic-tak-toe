@@ -1,12 +1,13 @@
-import utils.board as board
 import os
 
+from ..utils.board import Board
 
-class GamePlay:
+
+class PVP:
     player_change = {"PlayerX": "X", "PlayerO": "O"}
 
     def __init__(self):
-        self.board = board.Board()
+        self.board = Board()
         self.player = "PlayerX"
 
     def get_coords(self):
@@ -24,7 +25,7 @@ class GamePlay:
                 print()
                 print("WRONG FORMAT!")
 
-    def gui(self):
+    def gui_pvp(self):
         os.system("clear")
         self.board.print_board()
 
@@ -33,9 +34,7 @@ class GamePlay:
 
         return self.get_coords()
 
-    def turn(self):
-        x, y = self.gui()
-
+    def makeMove(self, x, y):
         self.board.make_move(x, y, self.player_change[self.player])
         if isinstance(self.board.checkWin(), int):
             os.system("clear")
@@ -52,12 +51,16 @@ class GamePlay:
         self.player = "PlayerX" if (self.player == "PlayerO") else "PlayerO"
         return True
 
+    def player_turn(self):
+        x, y = self.gui_pvp()
+        return self.makeMove(x, y)
+
     def play(self):
         flag = True
         while flag:
-            flag = self.turn()
+            flag = self.player_turn()
 
 
 if __name__ == "__main__":
-    game = GamePlay()
+    game = PVP()
     game.play()
