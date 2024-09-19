@@ -1,7 +1,10 @@
+import os
+
 from .gamemodes import pvc, pvp
 
 
 def get_gamemode():
+    os.system("clear")
     res = ["Pick Gamemode:\n", "1. Player vs Player", "2. Player vs Computer"]
     print("\n".join(res))
 
